@@ -31,7 +31,14 @@ jobs:
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
             -e"${BUILD_APPDIR}/usr/share/discord/Discord" \
-            -l/usr/lib64/libnspr4.so -l/usr/lib64/libnss3.so -l/usr/lib64/libnssutil3.so -l/usr/lib64/libplc4.so -l/usr/lib64/libplds4.so -l/usr/lib64/libsmime3.so -l/usr/lib64/libssl3.so -l/lib64/libfreebl3.so -l/lib64/libfreeblpriv3.so -l/usr/lib64/libnssckbi.so -l/usr/lib64/libnssdbm3.so -l/usr/lib64/libsoftokn3.so -l/usr/lib64/libatomic.so.1 -l/usr/lib64/libc++.so.1 -l/usr/lib64/libc++abi.so.1 -l/usr/lib64/libgconf-2.so.4 -l/usr/lib64/libnotify.so.4 -l/usr/lib64/libXss.so.1 -l/usr/lib64/libXtst.so.6 \
+            -l/usr/lib/x86_64-linux-gnu/libnspr4.so \
+            -l/usr/lib/x86_64-linux-gnu/libnss3.so \
+            -l/usr/lib/x86_64-linux-gnu/libnssutil3.so \
+            -l/usr/lib/x86_64-linux-gnu/libplc4.so \
+            -l/usr/lib/x86_64-linux-gnu/libplds4.so \
+            -l/usr/lib/x86_64-linux-gnu/libsmime3.so \
+            -l/usr/lib/x86_64-linux-gnu/libssl3.so \
+            -l/lib/x86_64-linux-gnu/libfreebl3.so -l/lib/x86_64-linux-gnu/libfreeblpriv3.so -l/usr/lib/x86_64-linux-gnu/libnssckbi.so -l/usr/lib/x86_64-linux-gnu/libnssdbm3.so -l/usr/lib/x86_64-linux-gnu/libsoftokn3.so -l/usr/lib/x86_64-linux-gnu/libatomic.so.1 -l/usr/lib/x86_64-linux-gnu/libc++.so.1 -l/usr/lib/x86_64-linux-gnu/libc++abi.so.1 -l/usr/lib/x86_64-linux-gnu/libgconf-2.so.4 -l/usr/lib/x86_64-linux-gnu/libnotify.so.4 -l/usr/lib/x86_64-linux-gnu/libXss.so.1 -l/usr/lib/x86_64-linux-gnu/libXtst.so.6 \
             -oappimage
             export TRAVIS_REPO_SLUG="zilti/discord.AppImage"
             wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
