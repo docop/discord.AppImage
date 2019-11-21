@@ -40,8 +40,8 @@ jobs:
             -l/usr/lib/x86_64-linux-gnu/libssl3.so \
             -l/usr/lib/x86_64-linux-gnu/nss/libfreebl3.so \
             -l/usr/lib/x86_64-linux-gnu/nss/libfreeblpriv3.so \
-            -l/usr/lib/x86_64-linux-gnu/libnssckbi.so \
-            -l/usr/lib/x86_64-linux-gnu/libnssdbm3.so \
+            -l/usr/lib/x86_64-linux-gnu/nss/libnssckbi.so \
+            -l/usr/lib/x86_64-linux-gnu/nss/libnssdbm3.so \
             -l/usr/lib/x86_64-linux-gnu/libsoftokn3.so \
             -l/usr/lib/x86_64-linux-gnu/libatomic.so.1 \
             -l/usr/lib/x86_64-linux-gnu/libc++.so.1 \
