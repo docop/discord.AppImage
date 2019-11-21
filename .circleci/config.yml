@@ -8,7 +8,7 @@ jobs:
       - run:
           name: "Installing prerequisites"
           command: |
-            sudo apt-get install fuse libfuse2 kmod git appstream-util libatomic1 libc++1 libc++abi1 libx11-6 libxtst6 \
+            sudo apt-get install fuse libfuse2 kmod git libatomic1 libc++1 libx11-6 libxtst6 \
             libasound2 gconf2 libgtk2.0-0 libxss1
             sudo depmod
             sudo modprobe fuse
@@ -22,13 +22,14 @@ jobs:
             mkdir -p "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
             mkdir -p "${BUILD_APPDIR}/usr/share/metainfo"
             cp -r Discord "${BUILD_APPDIR}/usr/share/discord"
-            chmod +x "${BUILD_APPDIR}/usr/share/discord/Discord"
+            chmod +x "${BUILD_APPDIR}/usr/share/discord/Discord/Discord"
             cp discord.desktop "${BUILD_APPDIR}"
             cp discord.svg "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
             cp com.discordapp.appdata.xml "${BUILD_APPDIR}/usr/share/metainfo"
             export ARCH=x86_64
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
+            -e"${BUILD_APPDIR}/usr/share/discord/Discord/Discord" \
             -l/usr/lib64/libnspr4.so -l/usr/lib64/libnss3.so -l/usr/lib64/libnssutil3.so -l/usr/lib64/libplc4.so -l/usr/lib64/libplds4.so -l/usr/lib64/libsmime3.so -l/usr/lib64/libssl3.so -l/lib64/libfreebl3.so -l/lib64/libfreeblpriv3.so -l/usr/lib64/libnssckbi.so -l/usr/lib64/libnssdbm3.so -l/usr/lib64/libsoftokn3.so -l/usr/lib64/libatomic.so.1 -l/usr/lib64/libc++.so.1 -l/usr/lib64/libc++abi.so.1 -l/usr/lib64/libgconf-2.so.4 -l/usr/lib64/libnotify.so.4 -l/usr/lib64/libXss.so.1 -l/usr/lib64/libXtst.so.6 \
             -oappimage
             export TRAVIS_REPO_SLUG="zilti/discord.AppImage"
