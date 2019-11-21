@@ -37,7 +37,7 @@ jobs:
             export LD_LIBRARY_PATH="/usr/lib/chromium-browser/libs"
             export LIBRARY_PATH="/usr/lib/chromium-browser/libs"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
-            -l/usr/lib/chromium-browser/libs/libffmpeg.so" \
+            -l/usr/lib/chromium-browser/libs/libffmpeg.so \
             -e"${BUILD_APPDIR}/usr/bin/Discord" \
             -oappimage
             export TRAVIS_REPO_SLUG="zilti/discord.AppImage"
