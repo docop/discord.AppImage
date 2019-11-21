@@ -1,0 +1,36 @@
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+    steps:
+      - checkout
+      - run:
+          name: "Installing prerequisites"
+          command: |
+            sudo apt-get install fuse libfuse2 kmod git appstream-util libatomic1 libc++1 libc++abi1 libx11-6 libxtst6 \
+            libasound2 gconf2 libgtk2.0-0 libxss1
+            sudo depmod
+            sudo modprobe fuse
+            curl -L https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage -o linuxdeploy && chmod +x linuxdeploy
+            curl https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.tar.gz | tar xzvf -
+      - run:
+          name: "Building AppImage"
+          command: |
+            mkdir AppDir
+            BUILD_APPDIR="$(pwd)/AppDir"
+            mkdir -p "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
+            mkdir -p "${BUILD_APPDIR}/usr/share/metainfo"
+            cp -r Discord "${BUILD_APPDIR}/usr/share/discord"
+            chmod +x "${BUILD_APPDIR}/usr/share/discord/Discord"
+            cp discord.desktop "${BUILD_APPDIR}"
+            cp discord.svg "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
+            cp com.discordapp.appdata.xml "${BUILD_APPDIR}/usr/share/metainfo"
+            export ARCH=x86_64
+            export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
+            ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
+            -l/usr/lib64/libnspr4.so -l/usr/lib64/libnss3.so -l/usr/lib64/libnssutil3.so -l/usr/lib64/libplc4.so -l/usr/lib64/libplds4.so -l/usr/lib64/libsmime3.so -l/usr/lib64/libssl3.so -l/lib64/libfreebl3.so -l/lib64/libfreeblpriv3.so -l/usr/lib64/libnssckbi.so -l/usr/lib64/libnssdbm3.so -l/usr/lib64/libsoftokn3.so -l/usr/lib64/libatomic.so.1 -l/usr/lib64/libc++.so.1 -l/usr/lib64/libc++abi.so.1 -l/usr/lib64/libgconf-2.so.4 -l/usr/lib64/libnotify.so.4 -l/usr/lib64/libXss.so.1 -l/usr/lib64/libXtst.so.6 \
+            -oappimage
+            export TRAVIS_REPO_SLUG="zilti/discord.AppImage"
+            wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+            bash upload.sh *.AppImage*
