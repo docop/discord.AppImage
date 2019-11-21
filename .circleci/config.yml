@@ -31,25 +31,25 @@ jobs:
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
             -e"${BUILD_APPDIR}/usr/share/discord/Discord" \
-            -l/usr/lib/x86_64-linux-gnu/libnspr4.so \
-            -l/usr/lib/x86_64-linux-gnu/libnss3.so \
-            -l/usr/lib/x86_64-linux-gnu/libnssutil3.so \
-            -l/usr/lib/x86_64-linux-gnu/libplc4.so \
-            -l/usr/lib/x86_64-linux-gnu/libplds4.so \
-            -l/usr/lib/x86_64-linux-gnu/libsmime3.so \
-            -l/usr/lib/x86_64-linux-gnu/libssl3.so \
-            -l/usr/lib/x86_64-linux-gnu/nss/libfreebl3.so \
-            -l/usr/lib/x86_64-linux-gnu/nss/libfreeblpriv3.so \
-            -l/usr/lib/x86_64-linux-gnu/nss/libnssckbi.so \
-            -l/usr/lib/x86_64-linux-gnu/nss/libnssdbm3.so \
-            -l/usr/lib/x86_64-linux-gnu/libsoftokn3.so \
-            -l/usr/lib/x86_64-linux-gnu/libatomic.so.1 \
-            -l/usr/lib/x86_64-linux-gnu/libc++.so.1 \
-            -l/usr/lib/x86_64-linux-gnu/libc++abi.so.1 \
-            -l/usr/lib/x86_64-linux-gnu/libgconf-2.so.4 \
-            -l/usr/lib/x86_64-linux-gnu/libnotify.so.4 \
-            -l/usr/lib/x86_64-linux-gnu/libXss.so.1 \
-            -l/usr/lib/x86_64-linux-gnu/libXtst.so.6 \
+            # -l/usr/lib/x86_64-linux-gnu/libnspr4.so \
+            # -l/usr/lib/x86_64-linux-gnu/libnss3.so \
+            # -l/usr/lib/x86_64-linux-gnu/libnssutil3.so \
+            # -l/usr/lib/x86_64-linux-gnu/libplc4.so \
+            # -l/usr/lib/x86_64-linux-gnu/libplds4.so \
+            # -l/usr/lib/x86_64-linux-gnu/libsmime3.so \
+            # -l/usr/lib/x86_64-linux-gnu/libssl3.so \
+            # -l/usr/lib/x86_64-linux-gnu/nss/libfreebl3.so \
+            # -l/usr/lib/x86_64-linux-gnu/nss/libfreeblpriv3.so \
+            # -l/usr/lib/x86_64-linux-gnu/nss/libnssckbi.so \
+            # -l/usr/lib/x86_64-linux-gnu/nss/libnssdbm3.so \
+            # -l/usr/lib/x86_64-linux-gnu/nss/libsoftokn3.so \
+            # -l/usr/lib/x86_64-linux-gnu/libatomic.so.1 \
+            # -l/usr/lib/x86_64-linux-gnu/libc++.so.1 \
+            # -l/usr/lib/x86_64-linux-gnu/libc++abi.so.1 \
+            # -l/usr/lib/x86_64-linux-gnu/libgconf-2.so.4 \
+            # -l/usr/lib/x86_64-linux-gnu/libnotify.so.4 \
+            # -l/usr/lib/x86_64-linux-gnu/libXss.so.1 \
+            # -l/usr/lib/x86_64-linux-gnu/libXtst.so.6 \
             -oappimage
             export TRAVIS_REPO_SLUG="zilti/discord.AppImage"
             wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
