@@ -35,6 +35,7 @@ jobs:
             export ARCH=x86_64
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             export LD_LIBRARY_PATH="/usr/lib/chromium-browser/libs"
+            export LIBRARY_PATH="/usr/lib/chromium-browser/libs"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
             -e"${BUILD_APPDIR}/usr/bin/Discord" \
             -oappimage
