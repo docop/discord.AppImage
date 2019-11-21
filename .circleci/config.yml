@@ -10,7 +10,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install fuse libfuse2 kmod git libatomic1 libc++1 libx11-6 libxtst6 \
-            libasound2 libgtk2.0-0 libxss1 libnspr4 libnss3 appstream-util chromium-codecs-ffmpeg \
+            libasound2 libgtk2.0-0 libxss1 libnspr4 libnss3 appstream-util \
             chromium-codecs-ffmpeg-extra
             sudo depmod
             sudo modprobe fuse
