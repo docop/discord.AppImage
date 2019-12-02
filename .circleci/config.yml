@@ -34,10 +34,10 @@ jobs:
             ln -s ../share/discord/Discord Discord
             cd "${BUILD_HOME}"
             cat << EOF > AppRun
-#!/bin/sh
-cd usr/share/discord
-./Discord
-EOF
+            #!/bin/sh
+            cd usr/share/discord
+            ./Discord
+            EOF
             export ARCH=x86_64
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             export LD_LIBRARY_PATH="/usr/lib/chromium-browser"
