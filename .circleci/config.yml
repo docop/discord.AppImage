@@ -32,15 +32,14 @@ jobs:
             cp com.discordapp.appdata.xml "${BUILD_APPDIR}/usr/share/metainfo"
             cd "${BUILD_APPDIR}/usr/bin"
             ln -s ../share/discord/Discord Discord
-            cd "${BUILD_APPDIR}"
-            ln -s share/discord/Discord AppRun
             cd "${BUILD_HOME}"
+            ln -s share/discord/Discord AppRun
             export ARCH=x86_64
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             export LD_LIBRARY_PATH="/usr/lib/chromium-browser"
             export LIBRARY_PATH="/usr/lib/chromium-browser"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
-            --custom-apprun="${BUILD_APPDIR}/AppRun" \
+            --custom-apprun="${BUILD_HOME}/AppRun" \
             -l/usr/lib/chromium-browser/libffmpeg.so \
             -e"${BUILD_APPDIR}/usr/share/discord/Discord" \
             -oappimage
