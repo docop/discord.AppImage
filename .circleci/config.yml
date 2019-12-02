@@ -35,7 +35,7 @@ jobs:
             cd "${BUILD_HOME}"
             cat \<< EOF > AppRun
             #!/bin/sh
-            cd usr/share/discord
+            cd "\${APPDIR}/usr/share/discord"
             ./Discord
             EOF
             chmod +x ./AppRun
