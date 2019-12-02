@@ -38,7 +38,7 @@ jobs:
             cd usr/share/discord
             ./Discord
             EOF
-            chmod +x ./Discord
+            chmod +x ./AppRun
             export ARCH=x86_64
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             export LD_LIBRARY_PATH="/usr/lib/chromium-browser"
