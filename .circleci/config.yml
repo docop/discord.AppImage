@@ -33,7 +33,7 @@ jobs:
             cd "${BUILD_APPDIR}/usr/bin"
             ln -s ../share/discord/Discord Discord
             cd "${BUILD_HOME}"
-            cat << EOF > AppRun
+            cat \<< EOF > AppRun
             #!/bin/sh
             cd usr/share/discord
             ./Discord
