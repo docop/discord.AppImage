@@ -39,7 +39,7 @@ jobs:
             export LIBRARY_PATH="/usr/lib/chromium-browser"
             ./linuxdeploy --appdir="${BUILD_APPDIR}" --desktop-file="${BUILD_APPDIR}/discord.desktop" --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
             -l/usr/lib/chromium-browser/libffmpeg.so \
-            -e"${BUILD_APPDIR}/usr/bin/Discord" \
+            -e"${BUILD_APPDIR}/usr/share/discord/Discord" \
             -oappimage
             export TRAVIS_REPO_SLUG="zilti/discord.AppImage"
             wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
