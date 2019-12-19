@@ -19,6 +19,11 @@ jobs:
       - run:
           name: "Building AppImage"
           command: |
+            echo "-----BEGIN PGP PRIVATE KEY BLOCK-----" > certificate.asc
+            echo "" >> certificate.asc
+            echo $SIGN_CERT >> certificate.asc
+            echo "-----END PGP PRIVATE KEY BLOCK-----" >> certificate.asc
+            gpg --import ./certificate.asc
             mkdir AppDir
             BUILD_HOME="$(pwd)"
             BUILD_APPDIR="$(pwd)/AppDir"
@@ -39,6 +44,7 @@ jobs:
             ./Discord
             EOF
             chmod +x ./AppRun
+            export SIGN=1
             export ARCH=x86_64
             export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
             export LD_LIBRARY_PATH="/usr/lib/chromium-browser"
