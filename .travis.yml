@@ -1,34 +1,35 @@
 language: node_js
 sudo: true
-script: |
-  sudo apt-get install git nodejs binutils fuse appstream-util libatomic1 libc++1 libx11-6 \
-  libxtst6 libasound2 libgtk2.0-0 libxss1 libnspr4 libnss3 chromium-codecs-ffmpeg-extra
-  nvm install v12.14.0
-  nvm use v12.14.0
-  curl -o- -L https://yarnpkg.com/install.sh | bash
-  export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-  mkdir bin; cd bin
-  curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool; chmod +x appimagetool
-  curl -L https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage -o linuxdeploy; chmod +x linuxdeploy
-  gpg --import ./appsign.asc
-  cd ..
-  curl https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.tar.gz | tar xzvf -
-  mkdir AppDir
-  BUILD_HOME="$(pwd)"
-  BUILD_APPDIR="${BUILD_HOME}/AppDir"
-  mkdir -p "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
-  mkdir -p "${BUILD_APPDIR}/usr/share/metainfo"
-  mkdir -p "${BUILD_APPDIR}/usr/bin"
-  cp -r Discord "${BUILD_APPDIR}/usr/share/discord"
-  chmod +x "${BUILD_APPDIR}/usr/share/discord/Discord"
-  cp discord.desktop "${BUILD_APPDIR}"
-  cp discord.svg "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
-  cp com.discordapp.appdata.xml "${BUILD_APPDIR}/usr/share/metainfo"
-  export SIGN=1
-  export ARCH=x86_64
-  export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
-  export LD_LIBRARY_PATH="/usr/lib/chromium-browser"
-  export LIBRARY_PATH="/usr/lib/chromium-browser"
+script:
+-  sudo apt-get install git nodejs binutils fuse appstream-util libatomic1 libc++1 libx11-6 \
+-  libxtst6 libasound2 libgtk2.0-0 libxss1 libnspr4 libnss3 chromium-codecs-ffmpeg-extra
+-  nvm install v12.14.0
+-  nvm use v12.14.0
+-  curl -o- -L https://yarnpkg.com/install.sh | bash
+-  export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+-  mkdir bin; cd bin
+-  curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool; chmod +x appimagetool
+-  curl -L https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage -o linuxdeploy; chmod +x linuxdeploy
+-  gpg --import ./appsign.asc
+-  cd ..
+-  curl https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.tar.gz | tar xzvf -
+-  mkdir AppDir
+-  BUILD_HOME="$(pwd)"
+-  BUILD_APPDIR="${BUILD_HOME}/AppDir"
+-  mkdir -p "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
+-  mkdir -p "${BUILD_APPDIR}/usr/share/metainfo"
+-  mkdir -p "${BUILD_APPDIR}/usr/bin"
+-  cp -r Discord "${BUILD_APPDIR}/usr/share/discord"
+-  chmod +x "${BUILD_APPDIR}/usr/share/discord/Discord"
+-  cp discord.desktop "${BUILD_APPDIR}"
+-  cp discord.svg "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
+-  cp com.discordapp.appdata.xml "${BUILD_APPDIR}/usr/share/metainfo"
+-  export SIGN=1
+-  export ARCH=x86_64
+-  export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
+-  export LD_LIBRARY_PATH="/usr/lib/chromium-browser"
+-  export LIBRARY_PATH="/usr/lib/chromium-browser"
+- |
   bin/linuxdeploy \
   --appdir="${BUILD_APPDIR} \
   --desktop-file="${BUILD_APPDIR}/discord.desktop" \
