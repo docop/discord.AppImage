@@ -34,7 +34,7 @@ script:
   --appdir="${BUILD_APPDIR}" \
   --desktop-file="${BUILD_APPDIR}/discord.desktop" \
   --icon-file="${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps/discord.svg" \
-  --l/usr/lib/chromium-browser/libffmpeg.so \
+  --library=/usr/lib/chromium-browser/libffmpeg.so \
   --executable="${BUILD_APPDIR}/usr/share/discord/Discord" \
   --output=appimage
 
