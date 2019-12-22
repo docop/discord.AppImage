@@ -46,11 +46,12 @@ script:
   --executable="${BUILD_APPDIR}/usr/share/discord/Discord" \
   --output=appimage \
   --custom-apprun=AppRun
+- cp *.AppImage* ~
 
 after_success:
 - readlink -f .
 - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
-- bash upload.sh Riot*.AppImage*
+- bash upload.sh ~/*.AppImage*
   
 before_install:
 - openssl aes-256-cbc -K $encrypted_e49b548a1d94_key -iv $encrypted_e49b548a1d94_iv
