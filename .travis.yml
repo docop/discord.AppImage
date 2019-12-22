@@ -11,7 +11,7 @@ script:
 - mkdir bin; cd bin
 - curl -L https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -o appimagetool; chmod +x appimagetool
 - curl -L https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage -o linuxdeploy; chmod +x linuxdeploy
-- gpg --import ./appsign.asc
+- gpg --import ~/appsign.asc
 - cd ..
 - curl https://dl.discordapp.net/apps/linux/0.0.9/discord-0.0.9.tar.gz | tar xzvf -
 - mkdir AppDir
@@ -54,4 +54,4 @@ after_success:
   
 before_install:
 - openssl aes-256-cbc -K $encrypted_e49b548a1d94_key -iv $encrypted_e49b548a1d94_iv
-  -in appsign.asc.enc -out appsign.asc -d
+  -in appsign.asc.enc -out ~/appsign.asc -d
