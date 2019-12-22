@@ -26,12 +26,12 @@ script:
 - cp discord.svg "${BUILD_APPDIR}/usr/share/icons/hicolor/scalable/apps"
 - cp com.discordapp.appdata.xml "${BUILD_APPDIR}/usr/share/metainfo"
 - |
-  cat << EOF > "${BUILD_APPDIR}/AppRun"
+  cat << EOF > AppRun
   #!/usr/bin/env bash
   cd "${APPDIR}/usr/share/discord"
   env GDK_BACKEND=x11 ./Discord
   EOF
-- chmod +x ${BUILD_APPDIR}/AppRun
+- chmod +x AppRun
 - export SIGN=1
 - export ARCH=x86_64
 - export UPDATE_INFORMATION="gh-releases-zsync|zilti|discord.AppImage|continuous|Discord-*.AppImage.zsync"
@@ -45,7 +45,7 @@ script:
   --library=/usr/lib/chromium-browser/libffmpeg.so \
   --executable="${BUILD_APPDIR}/usr/share/discord/Discord" \
   --output=appimage \
-  --custom-apprun=AppDir/AppRun
+  --custom-apprun=AppRun
 
 after_success:
 - readlink -f .
